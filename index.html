@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cacluladora</title>
+	<link rel="stylesheet" type="text/css" href="./estilo/estilo.css">
+</head>
+<body>
+	<h1>Calculadora</h1>
+	<!-- <form> -->
+		<div class="caixa-numero">
+			<label>Número 1:</label><input id="n1" maxlength="100" type="text" name="n1"><br>
+		</div>
+		<div class="caixa-numero">
+			<label>Número 2:</label><input id="n2" maxlength="100" type="text" name="n2"><br>
+		</div>
+		<div class="operadores-aritimeticos">
+			<button class="botao" id = "somar">+</button>
+			<button class="botao" id = "subtrair">-</button>
+			<button class="botao" id="multiplicar">x</button>
+			<button class="botao" id="dividir" ">/</button>
+		</div>
+		<div class="caixa-numero resultado">
+			Resultado: <span id="resultado"></span>
+			<span id="result"></span>
+		</div>
+	<!-- </form> -->
+</body>
+<script type="text/javascript">
+	var n1 = document.querySelector('#n1')
+	var n2 = document.querySelector('#n2')
+	var tag_resultado = document.querySelector('#result')
+	document.querySelectorAll('input').forEach(function(input_html){
+		input_html.addEventListener('mousemove', function(evento){
+			evento.target.style.border = '2px solid red'
+		})
+		input_html.addEventListener('mouseleave', function(evento){
+			evento.target.style.border = '1px solid #eee'})
+		input_html.addEventListener('blur', function(evento){
+			var entrada_usuario = parseInt(evento.target.value)
+			if(isNaN(entrada_usuario) || !isFinite(entrada_usuario)){
+				evento.target.value = ''
+			}
+
+		})
+	})
+
+	document.querySelector('#dividir').addEventListener('mousemove', function(){
+		var resultado = parseFloat(n1.value) / parseFloat(n2.value)
+		tag_resultado.textContent = teste(resultado)
+
+	})
+	document.querySelector('#somar').addEventListener('click', somar)
+
+	document.querySelector('#subtrair').addEventListener('click', subtrair)
+
+	document.querySelector('#multiplicar').addEventListener('click', multiplicar)
+	
+
+	function teste(a) {
+		if(n1.value == "" || n2.value == "") {
+			return "Preencha os imputs"
+		}
+		else if (!isFinite(a) || isNaN(a)) {
+			return "Impossivel"
+		}
+		else {
+			return a
+		}
+	}
+	function somar() {
+		var resultado = parseFloat(n1.value) + parseFloat(n2.value)
+		tag_resultado.textContent = teste(resultado)
+	}function subtrair() {
+		var resultado = parseFloat(n1.value) - parseFloat(n2.value)
+		tag_resultado.textContent = teste(resultado)
+	}function multiplicar() {
+		var resultado = parseFloat(n1.value) * parseFloat(n2.value)
+		tag_resultado.textContent = teste(resultado)
+	}
+
+
+
+</script>
+</html>

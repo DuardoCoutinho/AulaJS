@@ -1,0 +1,39 @@
+html {
+	background: #2196f3;
+	font-family: Arial;
+}
+
+body {
+	width: 500px;
+	margin: 0 auto;
+}
+	
+h1 {
+	text-align: center;
+	font-size: 70px;
+	border-bottom: solid 1px;
+}
+
+.caixa-numero {
+	margin: 10px;
+}
+
+label {
+	font-size: 18px;
+	margin-right: 10px;
+}
+
+.botao {
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.operadores-aritimeticos {
+	
+	text-align: center;
+}
+
+#n1, #n2 {
+	padding: 10px;
+	border-radius: 4px;
+}
